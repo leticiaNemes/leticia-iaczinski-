@@ -1,14 +1,21 @@
+
 import react{useState, useEffect, useRef} frm 'react';
 import{view, text, styleSheet, touchableOpacty, alert} from ' react-native';
+
+
+
 const Cell_size=20
 const Grid_size:15;
 const initial_snake=[{x:7,y:7}]
 const initial_direction={x:o,y:-1};
+
 export default funcion snakeGame(){
+
 const [snake, setSnake]=useState(initial_snake);
 const [direction, setDirection]=useState(initial_diretion);
 const[is gameOver, setIsGameOver]=useState(false);
 const movieInterval=useRef(null);
+
 funcionMovieSnake(){
 setSnake(prev=>{
 const newhead ={x:prev[0].x+direction.x, y:prev[0]. y+direction.y,
@@ -20,6 +27,18 @@ prev.some(seguiment=> seguiment.x ===newhead.x&&sseguiment.y===newhead.y))}
 setIsGameOver (true);
 clearInterval(movieInterval.current);
 alert.alert('fim de jogo','você bateu')
+
 return prev;
+};
+const newSnake = [newHead,...prev];
+newSnake.pop();
+return newSnake;
+});
+}
+useEffect (() =>
+moveInterval.current=setInterval(()=>{
+if(!isGameOver) moveSnake();
+},200)
+return() =>
 
 
